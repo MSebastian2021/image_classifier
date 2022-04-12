@@ -78,7 +78,7 @@ target/
 
 # exclude data from source control by default
 # exclude data from source control by default
-/data/
+/data/**
 # exception to the rule
 !/data/.gitkeep 
 
@@ -94,6 +94,6 @@ target/
 
 *.h5
 # exclude everything
-/models/*
+/models/**
 # exception to the rule
-!/models/.gitkeep 
+!/models/.gitkeep
