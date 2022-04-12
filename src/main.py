@@ -10,6 +10,7 @@ load_dotenv()
 settings.set_env()
 
 DATASET_URL = os.environ.get("DATASET_URL")
+DATA_DIR = os.environ.get("DATA_DIR")
 RAW_DIR = os.environ.get("RAW_DIR")
 #get the filename of the zipped file: 
 ZIP_FILE = os.environ.get("ZIP_FILE")
@@ -20,6 +21,12 @@ BATCH_SIZE = int(os.environ.get("BATCH_SIZE"))
 NUM_CLASSES = int(os.environ.get("NUM_CLASSES"))
 EPOCHS = int(os.environ.get("EPOCHS"))
 BUFFER_SIZE = int(os.environ.get("BUFFER_SIZE"))
+
+#create data dir, if it does not exist
+if not (os.path.exists(DATA_DIR)): 
+  # Create a new directory because it does not exist 
+  os.makedirs(DATA_DIR)
+  #print("The new directory is created!")
 
 #download dataset
 load_data.download_data(DATASET_URL, ZIP_FILE)
