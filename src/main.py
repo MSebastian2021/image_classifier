@@ -26,6 +26,7 @@ BUFFER_SIZE = int(os.environ.get("BUFFER_SIZE"))
 if not (os.path.exists(DATA_DIR)): 
   # Create a new directory because it does not exist 
   os.makedirs(DATA_DIR)
+  os.makedirs(RAW_DIR)
   #print("The new directory is created!")
 
 #download dataset
