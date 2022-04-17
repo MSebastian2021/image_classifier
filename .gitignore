@@ -91,8 +91,9 @@ target/
 # Mypy cache
 .mypy_cache/
 
+# don't include saved models
 *.h5
-# exclude everything
-/models/**
-# exception to the rule
-!/models/.gitkeep
+/models/my_saved_model/
+
+# don't include test files
+/src/tst*.*
