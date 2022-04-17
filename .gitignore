@@ -96,4 +96,4 @@ target/
 /models/my_saved_model/
 
 # don't include test files
-/src/tst*.*
+/src/test*.*
