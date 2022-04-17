@@ -3,7 +3,9 @@
 image_classifier
 ==============================
 
-image classification training and model maker
+Image classification training and model maker from <a href:"https://keras.io/examples/vision/image_classification_from_scratch/">this tutorial.</a>
+<br/>
+This project practice also makes use of a <a href:"https://github.com/MSebastian2021/image_classifier/blob/main/.github/workflows/upload_s3.yml">Github Workflow Action</a> to upload a file to an AWS S3 Bucket.
 
 Project Organization
 ------------
