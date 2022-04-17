@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@main
-      - name: copy file to  s3
+      - name: copy_to_s3
         shell: bash
         env:
           aws_key_id: ${{ secrets.AWS_KEY_ID }}
