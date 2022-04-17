@@ -1,4 +1,4 @@
-[![Upload to S3](https://github.com/MSebastian2021/image_classifier/actions/workflows/upload_s3.yml/badge.svg)](https://github.com/MSebastian2021/image_classifier/actions/workflows/upload_s3.yml)
+[![Upload to S3](https://github.com/MSebastian2021/image_classifier/actions/workflows/upload_s3.yml/badge.svg?branch=main&event=workflow_dispatch)](https://github.com/MSebastian2021/image_classifier/actions/workflows/upload_s3.yml)
 
 image_classifier
 ==============================
