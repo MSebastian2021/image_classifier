@@ -2,9 +2,18 @@
 #-e .
 
 # external requirements
+boto3
+botocore
 click
+docker
 Sphinx
+cookiecutter
 coverage
 awscli
 flake8
+mlflow
 python-dotenv>=0.5.1
+PyYAML
+tensorflow
+tensorboard
+tensorflow-io-gcs-filesystem
