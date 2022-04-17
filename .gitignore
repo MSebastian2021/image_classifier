@@ -79,7 +79,7 @@ target/
 # exclude data from source control by default
 /data/**
 # exception to the rule
-!/models/.gitkeep
+!/data/.gitkeep
 
 # Mac OS-specific storage files
 .DS_Store
@@ -94,6 +94,9 @@ target/
 # don't include saved models
 *.h5
 /models/my_saved_model/
+# exception to the rule
+!/models/.gitkeep
+!/models/*.h5
 
 # don't include test files
 /src/test*.*
