@@ -5,6 +5,8 @@ from dotenv import load_dotenv
 import data.load_data as load_data
 import models.cnn as classifier
 import settings
+import mlflow
+import boto3
 
 load_dotenv()
 settings.set_env()
@@ -15,19 +17,19 @@ RAW_DIR = os.environ.get("RAW_DIR")
 #get the filename of the zipped file: 
 ZIP_FILE = os.environ.get("ZIP_FILE")
 PETIMAGES_DIR = os.environ.get("PETIMAGES_DIR")
-#print("PETIMAGES_DIR: ", os.path.exists(PETIMAGES_DIR))
 IMAGE_SIZE = tuple(map(int, os.environ.get("IMAGE_SIZE").split(",")))
 BATCH_SIZE = int(os.environ.get("BATCH_SIZE"))
 NUM_CLASSES = int(os.environ.get("NUM_CLASSES"))
 EPOCHS = int(os.environ.get("EPOCHS"))
 BUFFER_SIZE = int(os.environ.get("BUFFER_SIZE"))
+AWS_TOPIC_ARN = os.environ.get("AWS_TOPIC_ARN")
+AWS_REGION = os.environ.get("AWS_REGION")
 
-#create data dir, if it does not exist
-if not (os.path.exists(DATA_DIR)): 
+
+#create raw dir, if it does not exist
+if not (os.path.exists(RAW_DIR)): 
   # Create a new directory because it does not exist 
-  os.makedirs(DATA_DIR)
   os.makedirs(RAW_DIR)
-  #print("The new directory is created!")
 
 #download dataset
 load_data.download_data(DATASET_URL, ZIP_FILE)
@@ -49,3 +51,14 @@ if (os.path.exists(PETIMAGES_DIR)):
     train_ds = train_ds.prefetch(buffer_size=BUFFER_SIZE)
     val_ds = val_ds.prefetch(buffer_size=BUFFER_SIZE)
     classifier.train(model, train_ds, val_ds, EPOCHS)
+
+## SNS
+client = boto3.client('sns', region_name=AWS_REGION)
+
+response = client.publish(
+    TopicArn=AWS_TOPIC_ARN,
+    Message='Training done',
+    Subject='Classification training'
+)
+
+print(response)

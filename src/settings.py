@@ -2,6 +2,7 @@ import dotenv
 import os
 
 def set_env():
+    #ROOT_DIR = os.path.realpath(os.path.join(os.path.dirname(__file__), '..'))
     project_dir = os.path.join(os.path.dirname(__file__), os.pardir)
     dotenv_path = os.path.join(project_dir, '.env')
     data_dir = os.path.join(project_dir, 'data')
@@ -26,4 +27,6 @@ def set_env():
     dotenv.set_key(dotenv_path, "NUM_CLASSES", "2")
     dotenv.set_key(dotenv_path, "EPOCHS", "50")
     dotenv.set_key(dotenv_path, "BUFFER_SIZE", "32")
+
+    dotenv.set_key(dotenv_path, "AWS_REGION", "eu-west-2")
     
