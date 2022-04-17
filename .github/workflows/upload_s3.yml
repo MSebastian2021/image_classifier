@@ -1,4 +1,4 @@
-name: Upload to S3
+name: Upload_to_S3
 
 on: 
   workflow_dispatch:
